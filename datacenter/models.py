@@ -30,11 +30,10 @@ class Visit(models.Model):
     def get_duration(self):
         entered_moscow_time = self.entered_at
         if self.leaved_at is None:
-            moscow_time = django.utils.timezone.localtime()
-            return moscow_time - entered_moscow_time
+            leaved_at = django.utils.timezone.localtime()
         else:
-            leaved_moscow_time = self.leaved_at
-            return leaved_moscow_time - entered_moscow_time
+            leaved_at = self.leaved_at
+        return leaved_at - entered_moscow_time
 
     def format_duration(self, duration):
         days, seconds = duration.days, duration.seconds
@@ -43,10 +42,8 @@ class Visit(models.Model):
         seconds = (seconds % 60)
         return f'{hours}:{minutes}:{seconds}'
 
-    def check_strange(self, duration):
+    def check_strange(self):
+        duration = self.get_duration()
         days, seconds = duration.days, duration.seconds
         hours = days * 24 + seconds // 3600
-        if hours >= 2:
-            return True
-        else:
-            return False
+        return hours >= 2
