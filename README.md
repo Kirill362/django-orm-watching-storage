@@ -6,15 +6,21 @@
 2. Рекомендуется использовать [virtualenv/venv](https://docs.python.org/3/library/venv.html) для изоляции проекта.
 
 3. Используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей:   
-```pip install -r requirements.txt```
+    ```
+    pip install -r requirements.txt
+    ```
    
 4. Запустите скрипт командой:
    
-   ```python main.py```
+   ```
+   python main.py
+   ```
    
    и откройте в браузере ссылку: 
    
-   ```http://127.0.0.1:8000/```
+   ```
+   http://127.0.0.1:8000/
+   ```
    
 ## Цель проекта
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/modules/).
