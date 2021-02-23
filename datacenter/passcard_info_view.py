@@ -13,7 +13,7 @@ def passcard_info_view(request, passcode):
         visit_card = {
                 "entered_at": django.utils.timezone.localtime(visit.entered_at),
                 "duration": visit.format_duration(duration),
-                "is_strange": visit.check_strange(duration)
+                "is_strange": visit.check_strange()
             }
         this_passcard_visits.append(visit_card)
     context = {

@@ -11,7 +11,7 @@ def storage_information_view(request):
         visitor_data = {"who_entered": visitor.passcard,
                         "entered_at": django.utils.timezone.localtime(visitor.entered_at),
                         "duration": visitor.format_duration(duration),
-                        "is_strange": visitor.check_strange(duration)}
+                        "is_strange": visitor.check_strange()}
     non_closed_visits.append(visitor_data)
 
     context = {

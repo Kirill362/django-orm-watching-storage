@@ -44,6 +44,4 @@ class Visit(models.Model):
 
     def check_strange(self):
         duration = self.get_duration()
-        days, seconds = duration.days, duration.seconds
-        hours = days * 24 + seconds // 3600
-        return hours >= 2
+        return (duration.total_seconds() // 3600) >= 2
